@@ -4,7 +4,7 @@
 num_classes: 2            # background + membrane
 feature_dim: 256
 slice_size: 256
-sam_checkpoint: checkpoints/sam_vit_b_01ec64.pth   # REQUIRED for paper numbers
+sam_checkpoint: checkpoints/sam_vit_b_01ec64.pth  
 film_hidden: 128
 
 T_max: 5
