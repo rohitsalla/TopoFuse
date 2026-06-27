@@ -1,0 +1,38 @@
+# TopoFuse default configuration  (paper §4–§5)
+# Override any field on the command line via --config plus flags.
+
+# ── model ──────────────────────────────────────────────────────────────────
+num_classes: 2          # incl. background; SYN membrane = class 1
+feature_dim: 256        # SAM ViT-B output channels
+slice_size: 256         # slices resized to 256^2 (Lanczos), §4.3
+sam_checkpoint: null    # path to sam_vit_b_01ec64.pth; null -> fallback stem
+film_hidden: 128
+
+# ── projection (§4.5) ──────────────────────────────────────────────────────
+T_max: 5                # projection iteration cap
+epsilon: 0.05           # bottleneck tolerance d_B <= eps
+downsample_s: 2         # PH computed on s=2 grid (128^3 -> 64^3)
+delta: 0.05             # persistence pruning threshold
+
+# ── loss weights (§4.7) ────────────────────────────────────────────────────
+lambda_topo: 0.1        # Wasserstein topology loss (pre-projection)
+lambda_prior: 0.05      # prior-head l1 regression
+lambda_aux: 0.5         # auxiliary DiceCE on pre-projection probs
+warmup_steps: 5000      # linear warmup of L_topo
+
+# ── optimisation (§5.1) ────────────────────────────────────────────────────
+steps: 200000
+batch_size: 2           # per-GPU; total scales with DataParallel
+lr: 1.0e-4
+wd: 1.0e-4
+grad_clip: 1.0
+
+# ── data ───────────────────────────────────────────────────────────────────
+crop: 128               # real cryo-ET crops
+crop_syn: 64            # SYN volumes are 64^3 (full volume)
+stride: 64              # inference sliding-window stride
+
+# ── eval / logging ─────────────────────────────────────────────────────────
+val_every: 2000
+ckpt_every: 10000
+log_every: 50

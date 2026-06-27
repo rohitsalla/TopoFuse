@@ -1,0 +1,12 @@
+torch>=2.0
+numpy>=1.23
+scipy>=1.9
+scikit-image>=0.19
+pyyaml>=6.0
+tqdm>=4.64
+cripser>=0.0.18      # CubicalRipser: exact cubical PH with critical cells
+gudhi>=3.7           # bottleneck distance
+mrcfile>=1.4         # .mrc / .rec cryo-ET volumes
+matplotlib>=3.6      # scripts/make_figures.py
+# optional: real SAM ViT-B encoder
+# pip install segment-anything   (+ download sam_vit_b_01ec64.pth)

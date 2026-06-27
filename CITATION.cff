@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the TopoFuse paper."
+title: "TopoFuse: Topology-Aware Tri-Planar Fusion for Cryo-Electron Tomography Segmentation"
+authors:
+  - family-names: Salla
+    given-names: Rohit
+preferred-citation:
+  type: conference-paper
+  title: "TopoFuse: Topology-Aware Tri-Planar Fusion for Cryo-Electron Tomography Segmentation"
+  authors:
+    - family-names: Salla
+      given-names: Rohit
+  collection-title: "Proceedings of the European Conference on Computer Vision (ECCV)"
+  year: 2026
+# NOTE: complete the author list and add DOI/pages once the proceedings are final.

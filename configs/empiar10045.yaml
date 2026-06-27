@@ -1,0 +1,33 @@
+# EMPIAR-10045 — cryo-ET ribosome segmentation (paper §5)
+# Ingest first (particle picks -> spheres):
+#   python scripts/ingest_empiar.py --ann-type coords \
+#     --tomograms <...> --annotations <...> --out ./data/empiar10045 \
+#     --num-classes 2 --class-id 1 --radius 8
+num_classes: 2            # background + ribosome
+feature_dim: 256
+slice_size: 256
+sam_checkpoint: checkpoints/sam_vit_b_01ec64.pth   # REQUIRED for paper numbers
+film_hidden: 128
+
+T_max: 5
+epsilon: 0.05
+downsample_s: 2
+delta: 0.05
+
+lambda_topo: 0.1
+lambda_prior: 0.05
+lambda_aux: 0.5
+warmup_steps: 5000
+
+steps: 200000
+batch_size: 2
+lr: 1.0e-4
+wd: 1.0e-4
+grad_clip: 1.0
+
+crop: 128
+stride: 64
+
+val_every: 2000
+ckpt_every: 10000
+log_every: 50

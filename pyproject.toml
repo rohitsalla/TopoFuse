@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "topofuse"
+version = "1.0.0"
+description = "TopoFuse: Topology-Aware Tri-Planar Fusion for Cryo-ET Segmentation (ECCV 2026)"
+requires-python = ">=3.9"
+dependencies = [
+  "torch>=2.0",
+  "numpy>=1.23",
+  "scipy>=1.9",
+  "scikit-image>=0.19",
+  "pyyaml>=6.0",
+  "tqdm>=4.64",
+  "cripser>=0.0.18",     # CubicalRipser: exact cubical PH with critical cells
+  "gudhi>=3.7",          # bottleneck distance
+  "mrcfile>=1.4",        # .mrc / .rec cryo-ET volumes
+  "matplotlib>=3.6",     # figure scripts
+]
+
+[project.optional-dependencies]
+sam = ["segment-anything"]        # real SAM ViT-B encoder (download ckpt separately)
+dev = ["pytest>=7.0"]
+
+[tool.setuptools]
+packages = ["topofuse", "topofuse.topo", "topofuse.models", "topofuse.losses",
+            "topofuse.data", "topofuse.evaluation", "topofuse.utils"]

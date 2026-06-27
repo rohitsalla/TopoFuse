@@ -1,0 +1,27 @@
+# runs, data, checkpoints, figures
+runs/
+figures/
+SYN_dataset/
+data/empiar*/
+data/emd*/
+checkpoints/
+*.pth
+*.pt
+**/.topo_cache/
+RESULTS.md
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/

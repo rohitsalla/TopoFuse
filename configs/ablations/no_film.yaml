@@ -1,0 +1,25 @@
+# Ablation: w/o FiLM fusion (mean fusion) (paper §5). Base = SYN settings; one component toggled.
+num_classes: 2
+feature_dim: 256
+slice_size: 256
+sam_checkpoint: null
+film_hidden: 128
+T_max: 5
+epsilon: 0.05
+downsample_s: 2
+delta: 0.05
+lambda_topo: 0.1
+lambda_prior: 0.05
+lambda_aux: 0.5
+warmup_steps: 5000
+steps: 200000
+batch_size: 4
+lr: 1.0e-4
+wd: 1.0e-4
+grad_clip: 1.0
+crop_syn: 64
+stride: 64
+val_every: 2000
+ckpt_every: 10000
+log_every: 50
+use_film: false
