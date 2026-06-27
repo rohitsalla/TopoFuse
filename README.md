@@ -3,13 +3,6 @@
 **Topology-Aware Tri-Planar Fusion for Cryo-Electron Tomography Segmentation**
 <br>Official Implementation · ECCV 2026 (paper ID 4700)
 
-TopoFuse segments cryo-ET volumes while *guaranteeing* the topology of the
-output. A tri-planar SAM encoder produces an initial prediction, a
-topology-conditioned FiLM module fuses the three views, and a **differentiable
-projection driven by exact persistent homology** repairs the segmentation to a
-target topology — emitting a per-volume *repair certificate* that records exactly
-which voxels were edited.
-
 
 ## Table of contents
 
